@@ -8,7 +8,7 @@
             :file-list="fileList"
             list-type="picture">
             <zh-button size="small" type="primary">点击上传</zh-button>
-            <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+            <div slot="tip" >只能上传jpg/png文件，且不超过500kb</div>
         </zh-upload>
     </div>
 </template>

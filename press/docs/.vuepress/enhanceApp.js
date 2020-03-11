@@ -14,6 +14,17 @@ Vue.directive('highlight',function (el) {
     hljs.highlightBlock(block)
   })
 })
+let lazy = true;
+Vue.mixin({
+  mounted(){
+    if(lazy){
+      import('zhu-ui').then(module=>{
+        Vue.use(module.default)
+      });
+      lazy = !lazy;
+    }
+  }
+})
 export default ({
   Vue,
   options, 

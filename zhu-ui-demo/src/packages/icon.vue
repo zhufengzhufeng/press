@@ -4,12 +4,10 @@
   </svg>
 </template>
 <script>
+import '@/styles/icon.js'
 export default {
   props: {
     icon: String
-  },
-  mounted(){
-      import ("@/styles/icon.js")
   },
   name: "zh-icon"
 };
