@@ -10,6 +10,9 @@ import Header from './container/header.vue';
 import Footer from './container/footer.vue';
 import Switch from './switch.vue';
 import Input from './input.vue';
+
+import Upload from './upload/upload.vue'
+import Progress from './progress.vue';
 const install = (Vue) =>{
     Vue.component(Button.name,Button);
     Vue.component(Icon.name,Icon);
@@ -22,6 +25,8 @@ const install = (Vue) =>{
     Vue.component(Header.name,Header);
     Vue.component(Input.name,Input);
     Vue.component(Switch.name,Switch);
+    Vue.component(Upload.name,Upload);
+    Vue.component(Progress.name,Progress)
 }
 if(typeof window.Vue !== 'undefined'){
     install(Vue);

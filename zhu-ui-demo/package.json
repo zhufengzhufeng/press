@@ -12,7 +12,12 @@
   "module": "./dist/zhu-ui.umd.min.js",
   "main": "./dist/zhu-ui.umd.min.js",
   "dependencies": {
+    "@koa/multer": "^2.0.2",
+    "@koa/router": "^8.0.8",
     "core-js": "^3.6.4",
+    "koa": "^2.11.0",
+    "koa-cors": "0.0.16",
+    "multer": "^1.4.2",
     "vue": "^2.6.11"
   },
   "devDependencies": {
