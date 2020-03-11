@@ -19,7 +19,7 @@
          :beforeRemove="beforeRemove"
 
          list-type="picture"
-         :drag="true"
+         :drag="false"
       >
          <zh-button type="primary" icon="shangchuan">点击上传</zh-button>
          <div slot="tip">只能上传jpg/png文件，且不超过500kb</div>

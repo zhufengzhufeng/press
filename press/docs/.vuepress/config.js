@@ -28,7 +28,8 @@ module.exports = {
                     collapsable: false,
                     children:[
                         '/components/form/input',
-                        '/components/form/switch'
+                        '/components/form/switch',
+                        '/components/form/upload'
                     ],
                 }
             ],
