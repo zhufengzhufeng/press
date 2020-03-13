@@ -76,7 +76,9 @@ export default {
   },
   data() {
     return {
-      files: []
+      files: [],
+      tempIndex:1,
+      reqs : {}
     };
   },
   components:{
@@ -93,10 +95,6 @@ export default {
         });
       }
     }
-  },
-  created() {
-    this.tempIndex = 1;
-    this.reqs = {};
   },
   methods: {
     handleClick() {
