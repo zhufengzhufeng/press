@@ -29,7 +29,8 @@ module.exports = {
                     children:[
                         '/components/form/input',
                         '/components/form/switch',
-                        '/components/form/upload'
+                        '/components/form/upload',
+                        '/components/form/datepicker'
                     ],
                 }
             ],
