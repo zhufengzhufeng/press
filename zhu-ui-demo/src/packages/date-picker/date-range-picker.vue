@@ -287,6 +287,7 @@ export default {
 .zh-date-content {
   width: 280px;
   display: inline-block;
+  background: #fff;
   user-select: none;
   box-shadow: 1px 1px 2px $primary, -1px -1px 2px $primary;
   .cell {
