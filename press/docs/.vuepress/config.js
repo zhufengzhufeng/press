@@ -32,6 +32,12 @@ module.exports = {
                         '/components/form/upload',
                         '/components/form/datepicker'
                     ],
+                },{
+                    title:'others',
+                    collapsable: false,
+                    children:[
+                        '/components/others/infinitescroll'
+                    ],
                 }
             ],
         }
