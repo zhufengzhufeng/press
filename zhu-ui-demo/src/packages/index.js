@@ -16,28 +16,28 @@ import Progress from './progress.vue';
 import DatePicker from './date-picker/date-picker';
 import DateRangePicker from './date-picker/date-range-picker';
 import InfiniteScroll from './infiniteScroll'
-import Popover from './popover';
-const install = (Vue) =>{
-    Vue.component(Button.name,Button);
-    Vue.component(Icon.name,Icon);
-    Vue.component(ButtonGroup.name,ButtonGroup);
-    Vue.component(Row.name,Row);
-    Vue.component(Col.name,Col);
-    Vue.component(Container.name,Container);
-    Vue.component(Main.name,Main);
-    Vue.component(Aside.name,Aside);
-    Vue.component(Header.name,Header);
-    Vue.component(Input.name,Input);
-    Vue.component(Switch.name,Switch);
-    Vue.component(Upload.name,Upload);
-    Vue.component(Progress.name,Progress);
-    Vue.component(DatePicker.name,DatePicker)
-    Vue.component(DateRangePicker.name,DateRangePicker)
-    Vue.component(Popover.name,Popover);
-
-    Vue.directive(InfiniteScroll.name,InfiniteScroll)
+// import Popover from './popover';
+const install = (Vue) => {
+    Vue.component(Button.name, Button);
+    Vue.component(Icon.name, Icon);
+    Vue.component(ButtonGroup.name, ButtonGroup);
+    Vue.component(Row.name, Row);
+    Vue.component(Col.name, Col);
+    Vue.component(Container.name, Container);
+    Vue.component(Main.name, Main);
+    Vue.component(Aside.name, Aside);
+    Vue.component(Header.name, Header);
+    Vue.component(Footer.name, Footer);
+    Vue.component(Input.name, Input);
+    Vue.component(Switch.name, Switch);
+    Vue.component(Upload.name, Upload);
+    Vue.component(Progress.name, Progress);
+    Vue.component(DatePicker.name, DatePicker)
+    Vue.component(DateRangePicker.name, DateRangePicker)
+    // Vue.component(Popover.name, Popover);
+    Vue.directive(InfiniteScroll.name, InfiniteScroll)
 }
-if(typeof window.Vue !== 'undefined'){
+if (typeof window.Vue !== 'undefined') {
     install(Vue);
 }
 export default {

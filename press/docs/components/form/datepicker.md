@@ -35,7 +35,4 @@
 参数|说明|类型|可选值|默认值
 :-|:-|:-|:-|:-|:-
 value / v-model | 绑定值 | date(DatePicker) / array(DateRangePicker) | — | —
-type|显示类型|string|year/month/date/dates/ week/datetime/datetimerange/ daterange/monthrange|date
-format|显示在输入框中的格式|string|见日期格式|yyyy-MM-dd
-name|原生属性|string|—|—
-prefix-icon|自定义头部图标的类名|string|—|el-icon-date
+

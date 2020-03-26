@@ -1,71 +1,71 @@
 <template>
-<div>
-  <div class="zh-date-picker" v-click-outside="handleBlur">
-    <zh-input suffix-icon="rili" :value="formateDate" @focus="handleFocus" @change="handleChange"></zh-input>
-    <div class="zh-date-content" v-if="isVisible">
-      <template v-if="mode == 'dates'">
-        <div class="zh-date-picker-header">
-          <zh-icon icon="left" @click="changeMonth(-1)"></zh-icon>
-          <zh-icon icon="prev" @click="changeYear(-1)"></zh-icon>
-          <span>
-            <b @click="mode='years'">{{tempTime.year}}</b>年
-            <b @click="mode='months'">{{tempTime.month+1}}</b>月
-          </span>
-          <zh-icon icon="next" @click="changeYear(1)"></zh-icon>
-          <zh-icon icon="right" @click="changeMonth(1)"></zh-icon>
-        </div>
-        <div class="zh-date-picker-panel">
-          <span class="cell" v-for="i in 7" :key="`week_${i}`">{{weeks[i-1]}}</span>
-          <div v-for="i in 6" :key="`row_${i}`">
-            <span
-              class="cell cell-date"
-              :class="{
+  <div>
+    <div class="zh-date-picker" v-click-outside="handleBlur">
+      <zh-input suffix-icon="rili" :value="formateDate" @focus="handleFocus" @change="handleChange"></zh-input>
+      <div class="zh-date-content" v-if="isVisible">
+        <template v-if="mode == 'dates'">
+          <div class="zh-date-picker-header">
+            <zh-icon icon="left" @click="changeMonth(-1)"></zh-icon>
+            <zh-icon icon="prev" @click="changeYear(-1)"></zh-icon>
+            <span>
+              <b @click="mode='years'">{{tempTime.year}}</b>年
+              <b @click="mode='months'">{{tempTime.month+1}}</b>月
+            </span>
+            <zh-icon icon="next" @click="changeYear(1)"></zh-icon>
+            <zh-icon icon="right" @click="changeMonth(1)"></zh-icon>
+          </div>
+          <div class="zh-date-picker-panel">
+            <span class="cell" v-for="i in 7" :key="`week_${i}`">{{weeks[i-1]}}</span>
+            <div v-for="i in 6" :key="`row_${i}`">
+              <span
+                class="cell cell-date"
+                :class="{
                   isToday:isToday(getCurrentDate(i,j)),
                   isSelect:isSelect(getCurrentDate(i,j)),
                   isNotCurrentMonth:!isCurrentMonth(getCurrentDate(i,j))
               }"
-              @click="selectDate(getCurrentDate(i,j))"
-              v-for="j in 7"
-              :key="`col_${j}`"
-            >{{getCurrentDate(i,j).getDate()}}</span>
+                @click="selectDate(getCurrentDate(i,j))"
+                v-for="j in 7"
+                :key="`col_${j}`"
+              >{{getCurrentDate(i,j).getDate()}}</span>
+            </div>
           </div>
-        </div>
-      </template>
-      <template v-if="mode === 'months'">
-        <div class="zh-date-picker-header">
-          <zh-icon icon="prev" @click="changeYear(-1)"></zh-icon>
-          {{tempTime.year}} 年
-          <zh-icon icon="next" @click="changeYear(1)"></zh-icon>
-        </div>
-        <div class="zh-date-picker-panel">
-          <span
-            class="cell-month"
-            :class="{active: (i-1 == time.month && (tempTime.year == time.year))}"
-            v-for="i in 12"
-            :key="i"
-            @click="selectMonth(i-1)"
-          >{{months[i-1]}}</span>
-        </div>
-      </template>
-      <template v-if="mode === 'years'">
-        <div class="zh-date-picker-header">
-          <zh-icon icon="left" @click="changeYear(-10)"></zh-icon>
-          {{startYear}}年 - {{startYear+9}}年
-          <zh-icon icon="right" @click="changeYear(10)"></zh-icon>
-        </div>
-        <div class="zh-date-picker-panel">
-          <span
-            class="cell-year"
-            :class="{active:startYear+ (i-1) == time.year}"
-            v-for="i in 10"
-            :key="i"
-            @click="selectYear(startYear + (i-1))"
-          >{{startYear + (i-1)}}</span>
-        </div>
-      </template>
+        </template>
+        <template v-if="mode === 'months'">
+          <div class="zh-date-picker-header">
+            <zh-icon icon="prev" @click="changeYear(-1)"></zh-icon>
+            {{tempTime.year}} 年
+            <zh-icon icon="next" @click="changeYear(1)"></zh-icon>
+          </div>
+          <div class="zh-date-picker-panel">
+            <span
+              class="cell-month"
+              :class="{active: (i-1 == time.month && (tempTime.year == time.year))}"
+              v-for="i in 12"
+              :key="i"
+              @click="selectMonth(i-1)"
+            >{{months[i-1]}}</span>
+          </div>
+        </template>
+        <template v-if="mode === 'years'">
+          <div class="zh-date-picker-header">
+            <zh-icon icon="left" @click="changeYear(-10)"></zh-icon>
+            {{startYear}}年 - {{startYear+9}}年
+            <zh-icon icon="right" @click="changeYear(10)"></zh-icon>
+          </div>
+          <div class="zh-date-picker-panel">
+            <span
+              class="cell-year"
+              :class="{active:startYear+ (i-1) == time.year}"
+              v-for="i in 10"
+              :key="i"
+              @click="selectYear(startYear + (i-1))"
+            >{{startYear + (i-1)}}</span>
+          </div>
+        </template>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 
@@ -78,7 +78,6 @@ function getYearMonthDay(date) {
   return [year, month, day];
 }
 export default {
- 
   name: "zh-date-picker",
   props: {
     value: {
@@ -103,9 +102,9 @@ export default {
     },
     formateDate: {
       get() {
-        if(this.value){
-           let { year, month, day } = this.time;
-           return `${year}-${month + 1}-${day}`;
+        if (this.value) {
+          let { year, month, day } = this.time;
+          return `${year}-${month + 1}-${day}`;
         }
       }
     },
@@ -227,10 +226,10 @@ export default {
 @import "@/styles/_var.scss";
 .zh-date-content {
   position: absolute;
-  z-index:10;
+  z-index: 100000;
   user-select: none;
   width: 280px;
-  background:#fff;
+  background: #fff;
   box-shadow: 1px 1px 2px $primary, -1px -1px 2px $primary;
   .cell {
     width: 40px;
