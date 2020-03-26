@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="infinite-list-wrapper" style="overflow:auto;height:200px;">
+        <div class="infinite-list-wrapper" style="overflow:auto;height:300px;">
             <ul
             class="list"
             v-infinite-scroll="load"
@@ -17,7 +17,7 @@
 export default {
     data () {
       return {
-        count: 2,
+        count: 5,
         loading: false
       }
     },
@@ -35,7 +35,7 @@ export default {
         setTimeout(() => {
           this.count += 2
           this.loading = false
-        }, 2000)
+        }, 500)
       }
     }
 }

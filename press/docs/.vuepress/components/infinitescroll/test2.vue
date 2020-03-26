@@ -1,5 +1,5 @@
 <template>
-  <div class="infinite-list-wrapper" style="overflow:auto">
+  <div class="infinite-list-wrapper" style="overflow:auto;height:300px">
     <ul
       class="list"
       v-infinite-scroll="load"
@@ -33,7 +33,7 @@
         setTimeout(() => {
           this.count += 2
           this.loading = false
-        }, 2000)
+        }, 500)
       }
     }
   }
