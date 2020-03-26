@@ -33,10 +33,17 @@ module.exports = {
                         '/components/form/datepicker'
                     ],
                 },{
+                    title:'Data',
+                    collapsable: false,
+                    children:[
+                        '/components/data/progress',
+                    ],
+                },{
                     title:'others',
                     collapsable: false,
                     children:[
-                        '/components/others/infinitescroll'
+                        '/components/others/infinitescroll',
+                        '/components/others/popover',
                     ],
                 }
             ],
