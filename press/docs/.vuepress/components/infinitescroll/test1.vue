@@ -8,7 +8,6 @@
             <li v-for="i in count" class="list-item" :key="i">{{ i }}</li>
             </ul>
             <p v-if="loading">加载中...</p>
-            <p v-if="noMore">没有更多了</p>
         </div>
     </div>
 </template>
@@ -21,14 +20,7 @@ export default {
         loading: false
       }
     },
-    // computed: {
-    //   noMore () {
-    //     return this.count >= 20
-    //   },
-    //   disabled () {
-    //     return this.loading || this.noMore
-    //   }
-    // },
+  
     methods: {
       load () {
         this.loading = true

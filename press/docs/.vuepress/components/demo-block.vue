@@ -1,17 +1,15 @@
 <template>
   <div
     class="demo-block"
-    :class="[blockClass, { 'hover': hovering }]"
-    @mouseenter="hovering = true"
-    @mouseleave="hovering = false">
+   >
     <div style="padding:24px">
         <slot name="source"></slot>
     </div>
-    <div class="meta" ref="meta">
+    <div class="meta" ref="meta" v-show="isExpanded">
       <div class="description" v-if="$slots.default">
         <slot></slot>
       </div>
-      <div class="highlight " v-highlight>
+      <div class="highlight " v-highlight >
         <slot name="highlight"></slot>
       </div>
     </div>
@@ -19,17 +17,17 @@
       class="demo-block-control"
       ref="control"
       @click="isExpanded = !isExpanded">
-      <transition name="arrow-slide">
-        <i :class="[iconClass, { 'hovering': hovering }]"></i>
-      </transition>
-      <transition name="text-slide">
-        <span v-show="hovering">{{ controlText }}</span>
-      </transition>
+
+      <i :class="[iconClass, { 'hovering': hovering }]"></i>
+      {{controlText}}
     </div>
   </div>
 </template>
 
 <style lang="scss">
+.demo-block-control{
+  -webkit-user-select: none;
+}
   .demo-block {
     border: solid 1px #ebebeb;
     border-radius: 3px;
@@ -53,9 +51,6 @@
     .meta {
       background-color: #fafafa;
       border-top: solid 1px #eaeefb;
-      overflow: hidden;
-      height: 0;
-      transition: height .2s;
     }
 
     .description {
@@ -178,91 +173,16 @@
         langConfig: {
           "hide-text": "隐藏代码",
           "show-text": "显示代码",
-          "button-text": "在线运行",
-          "tooltip-text": "前往 jsfiddle.net 运行此示例"
         }
       };
     },
-
-    props: {
-      jsfiddle: Object,
-      default() {
-        return {};
-      }
-    },
-
-    methods: {
-      scrollHandler() {
-        const { top, bottom, left } = this.$refs.meta.getBoundingClientRect();
-        this.fixedControl = bottom > document.documentElement.clientHeight &&
-          top + 44 <= document.documentElement.clientHeight;
-      },
-
-      removeScrollHandler() {
-        this.scrollParent && this.scrollParent.removeEventListener('scroll', this.scrollHandler);
-      }
-    },
-
-    computed: {
-      lang() {
-        return this.$route.path.split('/')[1];
-      },
-
-      blockClass() {
-        return `demo-${ this.lang } demo-${ this.$router.currentRoute.path.split('/').pop() }`;
-      },
-
-      iconClass() {
+    computed:{
+       iconClass() {
         return this.isExpanded ? 'el-icon-caret-top' : 'el-icon-caret-bottom';
       },
-
       controlText() {
         return this.isExpanded ? this.langConfig['hide-text'] : this.langConfig['show-text'];
       },
-
-      codeArea() {
-        return this.$el.getElementsByClassName('meta')[0];
-      },
-
-      codeAreaHeight() {
-          
-        if (this.$el.getElementsByClassName('description').length > 0) {
-         return this.$el.getElementsByClassName('description')[0].clientHeight +
-            this.$el.getElementsByClassName('highlight')[0].clientHeight + 20;
-        }
-        return this.$el.getElementsByClassName('highlight')[0].clientHeight;
-      }
-    },
-
-    watch: {
-      isExpanded(val) {
-        this.codeArea.style.height = val ? `${ this.codeAreaHeight + 1 }px` : '0';
-        if (!val) {
-          this.fixedControl = false;
-          this.$refs.control.style.left = '0';
-          this.removeScrollHandler();
-          return;
-        }
-        setTimeout(() => {
-          this.scrollParent = document.querySelector('.page-component__scroll > .el-scrollbar__wrap');
-          this.scrollParent && this.scrollParent.addEventListener('scroll', this.scrollHandler);
-          this.scrollHandler();
-        }, 200);
-      }
-    },
-
-    mounted() {
-      this.$nextTick(() => {
-        let highlight = this.$el.getElementsByClassName('highlight')[0];
-        if (this.$el.getElementsByClassName('description').length === 0) {
-          highlight.style.width = '100%';
-          highlight.borderRight = 'none';
-        }
-      });
-    },
-
-    beforeDestroy() {
-      this.removeScrollHandler();
     }
   };
 </script>
