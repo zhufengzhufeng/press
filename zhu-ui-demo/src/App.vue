@@ -6,6 +6,7 @@
       :delay="3000"
       :initial-index="2"
       :loop="false"
+      arrow="hover"
       @change="change"
     >
       <zh-carousel-item name="box1">
@@ -24,7 +25,7 @@
 export default {
   methods: {
     change(index) {
-      console.log(index);
+      // console.log(index);
     }
   }
 };

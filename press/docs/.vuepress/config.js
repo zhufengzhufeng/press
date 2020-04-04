@@ -44,6 +44,7 @@ module.exports = {
                     children:[
                         '/components/others/infinitescroll',
                         '/components/others/popover',
+                        '/components/others/carousel'
                     ],
                 }
             ],
