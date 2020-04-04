@@ -1,77 +1,37 @@
 <template>
-<div style="margin: 100px 0 800px">
-    <zh-progress :percentage="50" color="#409EFF"></zh-progress>
-    <zh-progress :percentage="50" :strokeWidth="10" color="#67C23A"></zh-progress>
-    <zh-progress :percentage="50" color="#E6A23C"></zh-progress>
-    <zh-progress :percentage="100" :format="formatFunc" color="#F56C6C"></zh-progress>
-    <zh-popover
-      placement="right"
-      width = "200px"
-      title="标题"
-      content="这是弹框"
-      trigger="click"
-      v-model="value1"
+  <div id="app" style="width:300px; margin:0 auto">
+    <zh-carousel
+      height="200px"
+      :autoplay="true"
+      :delay="3000"
+      :initial-index="2"
+      :loop="false"
+      @change="change"
     >
-      <zh-button slot="reference">点击弹框</zh-button>
-    </zh-popover>
-
-     <zh-popover
-      placement="top"
-      width = "200px"
-      title="标题"
-      content="这是弹框"
-      trigger="hover"
-       v-model="value2"
-    >
-      <zh-button slot="reference">点击弹框</zh-button>
-    </zh-popover>
-
-      <zh-popover
-      placement="right"
-      width = "200px"
-      title="标题"
-      content="这是弹框"
-      trigger="hover"
-       v-model="value3"
-    >
-      <zh-button slot="reference">点击弹框</zh-button>
-    </zh-popover>
-
-     <zh-popover
-      width = "200px"
-      title="标题"
-      content="这是弹框"
-      trigger="hover"
-       v-model="value4"
-    >
-      <zh-button slot="reference">点击弹框</zh-button>
-    </zh-popover>
-
-
-      <zh-popover
-      placement="left"
-      width = "200px"
-      title="标题"
-      content="这是弹框"
-      trigger="hover"
-       v-model="value5"
-    >
-      <zh-button slot="reference">点击弹框</zh-button>
-    </zh-popover>
-   
-</div>
-  
+      <zh-carousel-item name="box1">
+        <div class="content" style="background:red">内容1</div>
+      </zh-carousel-item>
+      <zh-carousel-item name="box2">
+        <div class="content" style="background:blue">内容2</div>
+      </zh-carousel-item>
+      <zh-carousel-item name="box3">
+        <div class="content" style="background:green">内容3</div>
+      </zh-carousel-item>
+    </zh-carousel>
+  </div>
 </template>
-
 <script>
 export default {
-    data(){
-      return {value1:true,value2:false,value3:false,value4:false,value5:false}
-    },
-    methods: {
-      formatFunc(percentage){
-        return percentage === 100 ? '满' : `${percentage}%`;
-      }
+  methods: {
+    change(index) {
+      console.log(index);
     }
-}
+  }
+};
 </script>
+<style lang="scss">
+.content {
+  width: 100%;
+  height: 100%;
+}
+</style>
