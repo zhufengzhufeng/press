@@ -6,8 +6,6 @@ install:
 script:
   - yarn docs:build # npm run docs:build
   - echo 'ui.fullstackjavascript.cn' > CNAME
-env:
-  - GITHUB_TOKEN=9fe592d769d8209ace215577e26e5e188fc23bc9
 deploy:
   provider: pages
   skip_cleanup: true
