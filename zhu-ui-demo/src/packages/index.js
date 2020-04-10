@@ -19,6 +19,7 @@ import InfiniteScroll from './infiniteScroll'
 import Popover from './popover';
 import Carousel from './carousel/carousel';
 import CarouselItem from './carousel/carousel-item';
+import Table from './table/table'
 const install = (Vue) => {
     Vue.component(Button.name, Button);
     Vue.component(Icon.name, Icon);
@@ -38,8 +39,9 @@ const install = (Vue) => {
     Vue.component(DateRangePicker.name, DateRangePicker)
     Vue.component(Popover.name, Popover);
     Vue.directive(InfiniteScroll.name, InfiniteScroll)
-    Vue.component(Carousel.name,Carousel);
-    Vue.component(CarouselItem.name,CarouselItem)
+    Vue.component(Carousel.name, Carousel);
+    Vue.component(CarouselItem.name, CarouselItem)
+    Vue.component(Table.name, Table);
 }
 if (typeof window.Vue !== 'undefined') {
     install(Vue);
