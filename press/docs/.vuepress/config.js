@@ -37,6 +37,7 @@ module.exports = {
                     collapsable: false,
                     children:[
                         '/components/data/progress',
+                        '/components/data/table',
                     ],
                 },{
                     title:'others',

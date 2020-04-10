@@ -27,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item) in cloneData" :key="item._id">
+          <tr v-for="(item,index) in cloneData" :key="item._id" :class="{stripe: stripe && index%2 == 0}">
             <td v-for="col in cloneColumns" :key="col.key" :style="{width:col.width+'px'}">
               <div v-if="col.type === 'selection'">
                 <input type="checkbox" @change="selectOne($event,item)" :checked="isChecked(item)" />
@@ -57,6 +57,10 @@ export default {
     },
     height: {
       type: String
+    },
+    stripe: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -194,6 +198,11 @@ export default {
       border: 1px solid #ddd;
       padding: 8px;
       text-align: left;
+    }
+    tbody{
+      tr.stripe{
+        background: #FAFAFA
+      }
     }
   }
   .zh-table-cell {
