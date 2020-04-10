@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - lts/*
+install:
+  - yarn install # npm ci
+script:
+  - yarn docs:build # npm run docs:build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: build
+  github_token: ffab86ed30740ae2fc4da5984dbf035e93fdb578
+  keep_history: true
+  on:
+    branch: master

@@ -2,6 +2,7 @@ module.exports = {
     title: 'zhu-ui', // 设置网站标题
     description: 'ui 库', //描述
     dest: './build', // 设置输出目录
+    base:'/press/'
     port: 1234, //端口
     themeConfig: { //主题配置
         nav: [{
