@@ -5,7 +5,6 @@ import Vue from 'vue';
 import hljs from 'highlight.js'
 import 'highlight.js/styles/googlecode.css' //样式文件
 
-import zhuUi from 'zhu-ui' // 要编写对应的文档的包
 import 'zhu-ui/dist/zhu-ui.css'
 
 Vue.directive('highlight',function (el) {
